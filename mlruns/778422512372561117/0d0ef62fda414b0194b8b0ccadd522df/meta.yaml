@@ -1,0 +1,15 @@
+artifact_uri: file:///Y:/Model%20Deployment/EXAM/mlruns/778422512372561117/0d0ef62fda414b0194b8b0ccadd522df/artifacts
+end_time: 1776791393109
+entry_point_name: ''
+experiment_id: '778422512372561117'
+lifecycle_stage: active
+run_id: 0d0ef62fda414b0194b8b0ccadd522df
+run_name: Logistic Regression
+run_uuid: 0d0ef62fda414b0194b8b0ccadd522df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776791390079
+status: 3
+tags: []
+user_id: adity

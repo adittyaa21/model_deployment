@@ -32,7 +32,7 @@ class ModelLoader:
         models = {}
         model_dir = 'saved_models'
 
-        def load_latest_compatible(files, task_name):
+        def load_latest_compatible(files):
             """Try newest-to-oldest files and return first compatible model."""
             candidates = sorted(
                 files,
@@ -40,36 +40,32 @@ class ModelLoader:
                 reverse=True
             )
 
+            errors = []
+
             for file_name in candidates:
                 try:
                     with open(os.path.join(model_dir, file_name), 'rb') as f:
-                        return file_name, pickle.load(f)
+                        return file_name, pickle.load(f), errors
                 except Exception as e:
-                    error_text = str(e)
-                    if 'sklearn.ensemble._gb_losses' in error_text:
-                        st.warning(
-                            f"Skipping outdated model {file_name}: incompatible with current scikit-learn version."
-                        )
-                    elif 'numpy._core' in error_text or 'numpy.core' in error_text:
-                        st.warning(
-                            f"Skipping incompatible model {file_name}: NumPy version mismatch."
-                        )
-                    else:
-                        st.warning(f"Could not load model {file_name}: {error_text}")
+                    errors.append((file_name, str(e)))
 
-            return None, None
+            return None, None, errors
         
         if os.path.exists(model_dir):
             clf_files = [f for f in os.listdir(model_dir) if f.endswith('.pkl') and 'classification' in f.lower()]
             reg_files = [f for f in os.listdir(model_dir) if f.endswith('.pkl') and 'regression' in f.lower()]
 
-            clf_name, clf_model = load_latest_compatible(clf_files, 'Classification')
+            clf_name, clf_model, clf_errors = load_latest_compatible(clf_files)
             if clf_model is not None:
                 models[f"Classification - {clf_name}"] = clf_model
+            elif clf_files:
+                st.warning("No compatible classification model found. Please retrain classification models.")
 
-            reg_name, reg_model = load_latest_compatible(reg_files, 'Regression')
+            reg_name, reg_model, reg_errors = load_latest_compatible(reg_files)
             if reg_model is not None:
                 models[f"Regression - {reg_name}"] = reg_model
+            elif reg_files:
+                st.warning("No compatible regression model found. Please retrain regression models.")
         
         if not models:
             st.warning("No pre-trained models found. Please run the pipeline first.")

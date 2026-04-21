@@ -1,0 +1,10 @@
+artifact_location: file:///Y:/Model%20Deployment/EXAM/mlruns/778422512372561117/models/m-40258fa94c884a97a03ad48d58e5f30e/artifacts
+creation_timestamp: 1776791367029
+experiment_id: '778422512372561117'
+last_updated_timestamp: 1776791370428
+model_id: m-40258fa94c884a97a03ad48d58e5f30e
+model_type: null
+name: classification_Random_Forest
+source_run_id: ccf12993e98f4a9c97519d25086fa927
+status: 2
+status_message: null
