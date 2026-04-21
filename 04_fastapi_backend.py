@@ -17,6 +17,8 @@ from datetime import datetime
 import io
 import logging
 import json
+import warnings
+from sklearn.exceptions import InconsistentVersionWarning
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -116,7 +118,9 @@ class ModelRegistry:
                     file_path = os.path.join(model_dir, file_name)
                     try:
                         with open(file_path, 'rb') as f:
-                            loaded_model = pickle.load(f)
+                            with warnings.catch_warnings():
+                                warnings.simplefilter('ignore', InconsistentVersionWarning)
+                                loaded_model = pickle.load(f)
                         logger.info(f"{model_type} model loaded: {file_name}")
                         return loaded_model
                     except Exception as model_error:

@@ -13,6 +13,8 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler, LabelEncoder
+import warnings
+from sklearn.exceptions import InconsistentVersionWarning
 
 # Page configuration
 st.set_page_config(
@@ -45,7 +47,10 @@ class ModelLoader:
             for file_name in candidates:
                 try:
                     with open(os.path.join(model_dir, file_name), 'rb') as f:
-                        return file_name, pickle.load(f), errors
+                        with warnings.catch_warnings():
+                            warnings.simplefilter('ignore', InconsistentVersionWarning)
+                            model = pickle.load(f)
+                    return file_name, model, errors
                 except Exception as e:
                     errors.append((file_name, str(e)))
 
