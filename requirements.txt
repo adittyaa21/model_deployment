@@ -4,7 +4,8 @@ numpy==2.0.2
 scikit-learn==1.5.1
 
 # ML Pipeline & Tracking
-mlflow==2.5.0
+# Optional for training only (exclude from Streamlit Cloud runtime)
+# mlflow==2.5.0
 
 # API Development
 fastapi==0.100.0
