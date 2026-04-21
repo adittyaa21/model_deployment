@@ -41,7 +41,14 @@ class ModelLoader:
                             task = 'Classification' if 'classification' in file else 'Regression'
                             models[f"{task} - {file}"] = model
                     except Exception as e:
-                        st.warning(f"Could not load model {file}: {str(e)}")
+                        error_text = str(e)
+                        st.warning(f"Could not load model {file}: {error_text}")
+                        if 'numpy._core' in error_text or 'numpy.core' in error_text:
+                            st.info(
+                                "Model serialization is incompatible with current dependencies. "
+                                "Ensure NumPy/Scikit-learn versions match the training environment "
+                                "and redeploy."
+                            )
         
         if not models:
             st.warning("No pre-trained models found. Please run the pipeline first.")

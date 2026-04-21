@@ -137,7 +137,13 @@ class ModelRegistry:
                 logger.warning("No regression model found")
         
         except Exception as e:
-            logger.error(f"Error loading models: {str(e)}")
+            error_text = str(e)
+            logger.error(f"Error loading models: {error_text}")
+            if 'numpy._core' in error_text or 'numpy.core' in error_text:
+                logger.error(
+                    "Model binary is incompatible with current NumPy/Scikit-learn versions. "
+                    "Install dependency versions matching the training environment and restart."
+                )
             import traceback
             traceback.print_exc()
             logger.warning("Models can be trained using the ml_pipeline.py script")
