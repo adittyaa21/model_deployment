@@ -104,13 +104,34 @@ class ModelRegistry:
                 logger.warning(f"{model_dir}/ directory not found")
                 return
             
+            def load_latest_compatible(files, model_type):
+                """Try newest-to-oldest model files and return first compatible model."""
+                candidates = sorted(
+                    files,
+                    key=lambda name: os.path.getmtime(os.path.join(model_dir, name)),
+                    reverse=True
+                )
+
+                for file_name in candidates:
+                    file_path = os.path.join(model_dir, file_name)
+                    try:
+                        with open(file_path, 'rb') as f:
+                            loaded_model = pickle.load(f)
+                        logger.info(f"{model_type} model loaded: {file_name}")
+                        return loaded_model
+                    except Exception as model_error:
+                        logger.warning(
+                            f"Skipping incompatible {model_type.lower()} model {file_name}: {model_error}"
+                        )
+
+                return None
+
             # Load classification model
             clf_files = [f for f in os.listdir(model_dir) if 'classification' in f.lower() and f.endswith('.pkl')]
             if clf_files:
-                clf_path = os.path.join(model_dir, clf_files[0])
-                with open(clf_path, 'rb') as f:
-                    self.classification_model = pickle.load(f)
-                logger.info(f"Classification model loaded: {clf_files[0]}")
+                self.classification_model = load_latest_compatible(clf_files, 'Classification')
+                if self.classification_model is None:
+                    logger.warning("No compatible classification model found")
                 
                 clf_features_file = os.path.join(model_dir, 'feature_names_classification.json')
                 if os.path.exists(clf_features_file):
@@ -123,10 +144,9 @@ class ModelRegistry:
             # Load regression model
             reg_files = [f for f in os.listdir(model_dir) if 'regression' in f.lower() and f.endswith('.pkl')]
             if reg_files:
-                reg_path = os.path.join(model_dir, reg_files[0])
-                with open(reg_path, 'rb') as f:
-                    self.regression_model = pickle.load(f)
-                logger.info(f"Regression model loaded: {reg_files[0]}")
+                self.regression_model = load_latest_compatible(reg_files, 'Regression')
+                if self.regression_model is None:
+                    logger.warning("No compatible regression model found")
                 
                 reg_features_file = os.path.join(model_dir, 'feature_names_regression.json')
                 if os.path.exists(reg_features_file):

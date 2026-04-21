@@ -31,24 +31,45 @@ class ModelLoader:
         """Load pre-trained models from saved_models directory."""
         models = {}
         model_dir = 'saved_models'
+
+        def load_latest_compatible(files, task_name):
+            """Try newest-to-oldest files and return first compatible model."""
+            candidates = sorted(
+                files,
+                key=lambda name: os.path.getmtime(os.path.join(model_dir, name)),
+                reverse=True
+            )
+
+            for file_name in candidates:
+                try:
+                    with open(os.path.join(model_dir, file_name), 'rb') as f:
+                        return file_name, pickle.load(f)
+                except Exception as e:
+                    error_text = str(e)
+                    if 'sklearn.ensemble._gb_losses' in error_text:
+                        st.warning(
+                            f"Skipping outdated model {file_name}: incompatible with current scikit-learn version."
+                        )
+                    elif 'numpy._core' in error_text or 'numpy.core' in error_text:
+                        st.warning(
+                            f"Skipping incompatible model {file_name}: NumPy version mismatch."
+                        )
+                    else:
+                        st.warning(f"Could not load model {file_name}: {error_text}")
+
+            return None, None
         
         if os.path.exists(model_dir):
-            for file in os.listdir(model_dir):
-                if file.endswith('.pkl'):
-                    try:
-                        with open(os.path.join(model_dir, file), 'rb') as f:
-                            model = pickle.load(f)
-                            task = 'Classification' if 'classification' in file else 'Regression'
-                            models[f"{task} - {file}"] = model
-                    except Exception as e:
-                        error_text = str(e)
-                        st.warning(f"Could not load model {file}: {error_text}")
-                        if 'numpy._core' in error_text or 'numpy.core' in error_text:
-                            st.info(
-                                "Model serialization is incompatible with current dependencies. "
-                                "Ensure NumPy/Scikit-learn versions match the training environment "
-                                "and redeploy."
-                            )
+            clf_files = [f for f in os.listdir(model_dir) if f.endswith('.pkl') and 'classification' in f.lower()]
+            reg_files = [f for f in os.listdir(model_dir) if f.endswith('.pkl') and 'regression' in f.lower()]
+
+            clf_name, clf_model = load_latest_compatible(clf_files, 'Classification')
+            if clf_model is not None:
+                models[f"Classification - {clf_name}"] = clf_model
+
+            reg_name, reg_model = load_latest_compatible(reg_files, 'Regression')
+            if reg_model is not None:
+                models[f"Regression - {reg_name}"] = reg_model
         
         if not models:
             st.warning("No pre-trained models found. Please run the pipeline first.")
