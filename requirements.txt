@@ -18,8 +18,8 @@ streamlit==1.41.1
 plotly==5.16.1
 
 # Data Visualization
-matplotlib==3.7.2
-seaborn==0.12.2
+matplotlib==3.9.2
+seaborn==0.13.2
 
 # Utilities
 requests==2.31.0
