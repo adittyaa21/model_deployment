@@ -1,0 +1,15 @@
+artifact_uri: file:///Y:/Model%20Deployment/EXAM/mlruns/853576400944301092/75e02772631f4c41b33eb79d1a47d219/artifacts
+end_time: 1776778093412
+entry_point_name: ''
+experiment_id: '853576400944301092'
+lifecycle_stage: active
+run_id: 75e02772631f4c41b33eb79d1a47d219
+run_name: Linear Regression
+run_uuid: 75e02772631f4c41b33eb79d1a47d219
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776778091245
+status: 3
+tags: []
+user_id: adity

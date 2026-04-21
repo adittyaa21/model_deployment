@@ -1,0 +1,15 @@
+artifact_uri: file:///Y:/Model%20Deployment/EXAM/mlruns/778422512372561117/49436582687948b59b5ced5b88104a7a/artifacts
+end_time: 1776779644415
+entry_point_name: ''
+experiment_id: '778422512372561117'
+lifecycle_stage: active
+run_id: 49436582687948b59b5ced5b88104a7a
+run_name: SVM
+run_uuid: 49436582687948b59b5ced5b88104a7a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776779641493
+status: 3
+tags: []
+user_id: adity

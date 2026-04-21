@@ -1,0 +1,15 @@
+artifact_uri: file:///Y:/Model%20Deployment/EXAM/mlruns/853576400944301092/c521d244830243b59441d504a837e4bb/artifacts
+end_time: 1776778106993
+entry_point_name: ''
+experiment_id: '853576400944301092'
+lifecycle_stage: active
+run_id: c521d244830243b59441d504a837e4bb
+run_name: Best_Model
+run_uuid: c521d244830243b59441d504a837e4bb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776778104784
+status: 3
+tags: []
+user_id: adity

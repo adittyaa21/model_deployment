@@ -1,0 +1,10 @@
+artifact_location: file:///Y:/Model%20Deployment/EXAM/mlruns/853576400944301092/models/m-5f7696196bcb4e2bb18e20031c9a7b8c/artifacts
+creation_timestamp: 1776779530826
+experiment_id: '853576400944301092'
+last_updated_timestamp: 1776779534442
+model_id: m-5f7696196bcb4e2bb18e20031c9a7b8c
+model_type: null
+name: regression_Gradient_Boosting
+source_run_id: a136839d803740bf8471c98217db86fb
+status: 2
+status_message: null

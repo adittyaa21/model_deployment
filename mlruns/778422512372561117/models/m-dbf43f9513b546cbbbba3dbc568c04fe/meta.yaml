@@ -1,0 +1,10 @@
+artifact_location: file:///Y:/Model%20Deployment/EXAM/mlruns/778422512372561117/models/m-dbf43f9513b546cbbbba3dbc568c04fe/artifacts
+creation_timestamp: 1776779500582
+experiment_id: '778422512372561117'
+last_updated_timestamp: 1776779508006
+model_id: m-dbf43f9513b546cbbbba3dbc568c04fe
+model_type: null
+name: classification_Logistic_Regression
+source_run_id: 0d5c6a57944243168adebbb4516b2b39
+status: 2
+status_message: null

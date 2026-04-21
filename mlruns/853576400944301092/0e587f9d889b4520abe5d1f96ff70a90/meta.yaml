@@ -1,0 +1,15 @@
+artifact_uri: file:///Y:/Model%20Deployment/EXAM/mlruns/853576400944301092/0e587f9d889b4520abe5d1f96ff70a90/artifacts
+end_time: 1776779121574
+entry_point_name: ''
+experiment_id: '853576400944301092'
+lifecycle_stage: active
+run_id: 0e587f9d889b4520abe5d1f96ff70a90
+run_name: Gradient Boosting
+run_uuid: 0e587f9d889b4520abe5d1f96ff70a90
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776779113422
+status: 3
+tags: []
+user_id: adity

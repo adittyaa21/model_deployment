@@ -1,0 +1,15 @@
+artifact_uri: file:///Y:/Model%20Deployment/EXAM/mlruns/853576400944301092/2e8f6b5d81a342a08e2b7de9dc69fb44/artifacts
+end_time: 1776779650843
+entry_point_name: ''
+experiment_id: '853576400944301092'
+lifecycle_stage: active
+run_id: 2e8f6b5d81a342a08e2b7de9dc69fb44
+run_name: Decision Tree
+run_uuid: 2e8f6b5d81a342a08e2b7de9dc69fb44
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776779648466
+status: 3
+tags: []
+user_id: adity

@@ -1,0 +1,10 @@
+artifact_location: file:///Y:/Model%20Deployment/EXAM/mlruns/778422512372561117/models/m-15f3f9b70bcb42339fb4e21019df18e3/artifacts
+creation_timestamp: 1776779514311
+experiment_id: '778422512372561117'
+last_updated_timestamp: 1776779517871
+model_id: m-15f3f9b70bcb42339fb4e21019df18e3
+model_type: null
+name: classification_SVM
+source_run_id: 54512f200a254bb69e9c9187ba5edbbc
+status: 2
+status_message: null

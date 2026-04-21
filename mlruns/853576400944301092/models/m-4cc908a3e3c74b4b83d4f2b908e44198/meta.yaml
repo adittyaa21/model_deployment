@@ -1,0 +1,10 @@
+artifact_location: file:///Y:/Model%20Deployment/EXAM/mlruns/853576400944301092/models/m-4cc908a3e3c74b4b83d4f2b908e44198/artifacts
+creation_timestamp: 1776779526189
+experiment_id: '853576400944301092'
+last_updated_timestamp: 1776779529733
+model_id: m-4cc908a3e3c74b4b83d4f2b908e44198
+model_type: null
+name: regression_Decision_Tree
+source_run_id: 77e53c562c7b4f78b168df2d9be4bf2f
+status: 2
+status_message: null

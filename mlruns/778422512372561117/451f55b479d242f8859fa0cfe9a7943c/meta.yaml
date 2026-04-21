@@ -1,0 +1,15 @@
+artifact_uri: file:///Y:/Model%20Deployment/EXAM/mlruns/778422512372561117/451f55b479d242f8859fa0cfe9a7943c/artifacts
+end_time: 1776778086063
+entry_point_name: ''
+experiment_id: '778422512372561117'
+lifecycle_stage: active
+run_id: 451f55b479d242f8859fa0cfe9a7943c
+run_name: Random Forest
+run_uuid: 451f55b479d242f8859fa0cfe9a7943c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776778079642
+status: 3
+tags: []
+user_id: adity

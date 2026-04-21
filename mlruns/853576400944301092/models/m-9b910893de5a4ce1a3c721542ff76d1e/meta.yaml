@@ -1,0 +1,10 @@
+artifact_location: file:///Y:/Model%20Deployment/EXAM/mlruns/853576400944301092/models/m-9b910893de5a4ce1a3c721542ff76d1e/artifacts
+creation_timestamp: 1776779522427
+experiment_id: '853576400944301092'
+last_updated_timestamp: 1776779525998
+model_id: m-9b910893de5a4ce1a3c721542ff76d1e
+model_type: null
+name: regression_Linear_Regression
+source_run_id: c964621bedab436c8e881ba5dc999a0b
+status: 2
+status_message: null

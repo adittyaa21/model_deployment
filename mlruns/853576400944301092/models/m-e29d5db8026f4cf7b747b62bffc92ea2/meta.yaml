@@ -1,0 +1,10 @@
+artifact_location: file:///Y:/Model%20Deployment/EXAM/mlruns/853576400944301092/models/m-e29d5db8026f4cf7b747b62bffc92ea2/artifacts
+creation_timestamp: 1776779537631
+experiment_id: '853576400944301092'
+last_updated_timestamp: 1776779541274
+model_id: m-e29d5db8026f4cf7b747b62bffc92ea2
+model_type: null
+name: best_model_regression
+source_run_id: 2a39891942ea46f7ae8f382ec110767c
+status: 2
+status_message: null
